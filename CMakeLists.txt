@@ -3,4 +3,4 @@ project(P1_Projekt C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(P1_Projekt main.c)
+add_executable(P1_Projekt main.c database_gen.c database_gen.h)
