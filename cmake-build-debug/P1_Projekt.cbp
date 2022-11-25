@@ -88,6 +88,12 @@
 		<Unit filename="C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/database_gen.h">
 			<Option target="P1_Projekt"/>
 		</Unit>
+		<Unit filename="C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/de-encoder.c">
+			<Option target="P1_Projekt"/>
+		</Unit>
+		<Unit filename="C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/de-encoder.h">
+			<Option target="P1_Projekt"/>
+		</Unit>
 		<Unit filename="C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/main.c">
 			<Option target="P1_Projekt"/>
 		</Unit>

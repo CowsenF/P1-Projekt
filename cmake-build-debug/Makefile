@@ -176,6 +176,30 @@ database_gen.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\P1_Projekt.dir\build.make CMakeFiles/P1_Projekt.dir/database_gen.c.s
 .PHONY : database_gen.c.s
 
+de-encoder.obj: de-encoder.c.obj
+.PHONY : de-encoder.obj
+
+# target to build an object file
+de-encoder.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\P1_Projekt.dir\build.make CMakeFiles/P1_Projekt.dir/de-encoder.c.obj
+.PHONY : de-encoder.c.obj
+
+de-encoder.i: de-encoder.c.i
+.PHONY : de-encoder.i
+
+# target to preprocess a source file
+de-encoder.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\P1_Projekt.dir\build.make CMakeFiles/P1_Projekt.dir/de-encoder.c.i
+.PHONY : de-encoder.c.i
+
+de-encoder.s: de-encoder.c.s
+.PHONY : de-encoder.s
+
+# target to generate assembly for a file
+de-encoder.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\P1_Projekt.dir\build.make CMakeFiles/P1_Projekt.dir/de-encoder.c.s
+.PHONY : de-encoder.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -239,6 +263,9 @@ help:
 	@echo ... database_gen.obj
 	@echo ... database_gen.i
 	@echo ... database_gen.s
+	@echo ... de-encoder.obj
+	@echo ... de-encoder.i
+	@echo ... de-encoder.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
