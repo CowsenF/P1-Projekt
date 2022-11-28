@@ -13,19 +13,37 @@ typedef struct{
 
 
 typedef struct{
-    char store_name[10];
-    final_items finalItems;
+    char store_name[11];
+    final_items finalItems[11];
 
 }final_stores;
 
+int store_array_name(char* store_name) {
 
-
-
-
-
-
-
-
+    if (strcmp(store_name, "Bilka") == 0) {
+        return 0;
+    } else if (strcmp(store_name, "Rema") == 0) {
+        return 1;
+    } else if (strcmp(store_name, "Fotex") == 0) {
+        return 2;
+    } else if (strcmp(store_name, "Spar") == 0) {
+        return 3;
+    } else if (strcmp(store_name, "Daglig_Brusen") == 0) {
+        return 4;
+    } else if (strcmp(store_name, "Coop_365") == 0) {
+        return 5;
+    } else if (strcmp(store_name, "nem_handel") == 0) {
+        return 6;
+    } else if (strcmp(store_name, "kobmand") == 0) {
+        return 7;
+    } else if (strcmp(store_name, "Fleggard") == 0) {
+        return 8;
+    } else if (strcmp(store_name, "Netto") == 0) {
+        return 9;
+    } else if (strcmp(store_name, "Meny") == 0) {
+        return 10;
+    }
+}
 
 
 int main() {
@@ -39,9 +57,9 @@ int main() {
     // For database
     FILE *fptr2;
     fptr2 = fopen ("store_list.txt","r");
-    stores stores1[10];
+    stores stores1[11];
     // For the final struct
-    final_stores finalStores[10];
+    final_stores finalStores[11];
 
 
     printf("Please input the maximum radius of your shopping trip in KM");
@@ -63,10 +81,6 @@ int main() {
     }
 
 
-
-
-
-
     for (int i = 0; i < 10; ++i) {
         fscanf(fptr2,"%[^ ] distance: %lf ",stores1[i].store_name,&stores1[i].distance);
         for (int j = 0; j < 10; ++j) {
@@ -77,23 +91,31 @@ int main() {
     node_t* current = list_of_items.head;
     while(current != NULL){
 
-        for (int i = 0; i < 10; ++i) {
-            if(stores1[i].distance > range) continue;
-            for (int j = 0; j < 10; ++j) {
-                if(strcmp(stores1[i].items[j].item_name,current->item.name) == 1){
-                    finalStores->finalItems.price = stores1[i].items->item_price;
-                    // mangler array plads til final finalstores
-                    strcpy(finalStores->finalItems.item_name,current->item.name);
+        for (int i = 0; i < 11; ++i) {
+            if(stores1[i].distance > range) {
+                current = current->next;
+                continue;
+            }
+            for (int j = 0; j < 11; ++j) {
+                if(strcmp(stores1[i].items[j].item_name,current->item.name) == 0){
+                    finalStores[store_array_name(stores1[i].store_name)].finalItems[j].price = stores1[i].items[j].item_price;
+
+                    strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,current->item.name);
+
+                    current = current->next;
                 }
             }
-
+            node_t* current = list_of_items.head;
         }
+    }
 
 
+    for (int i = 0; i < 11; ++i) {
+        printf("NAME OF STORE: %s",finalStores[i].store_name);
 
-
-        printf("%s \n", current->item.name);
-        current = current->next;
+        for (int j = 0; j < 11; ++j) {
+            printf("NAME OF PRODUCT: %s PRICE:%d",finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
+        }
     }
 
 

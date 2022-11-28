@@ -8,9 +8,9 @@ typedef struct {
 }item;
 
 typedef struct {
-    char store_name[10];
+    char store_name[11];
     double distance;
-    item items[10];
+    item items[11];
 }stores;
 
 stores* get_list_of_best_stores(stores list_of_stores[], size_t number_of_stores);
