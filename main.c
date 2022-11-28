@@ -117,17 +117,10 @@ int main() {
 
 
 
-
-
-
-
-
-
         while(exit_con == 1){
 
         for (int i = 0; i < 11; ++i) {
             if(stores1[i].distance > range) {
-                //current = current->next;
                 continue;
             }
             for (int j = 0; j < 11; ++j) {
