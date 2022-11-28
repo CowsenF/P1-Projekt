@@ -18,6 +18,14 @@ typedef struct{
 
 }final_stores;
 
+
+typedef struct {
+    char item[15];
+}item_holder;
+
+
+
+
 int store_array_name(char* store_name) {
 
     if (strcmp(store_name, "Bilka") == 0) {
@@ -60,6 +68,7 @@ int main() {
     stores stores1[11];
     // For the final struct
     final_stores finalStores[11];
+    item_holder itemHolder[11];
 
 
     printf("Please input the maximum radius of your shopping trip in KM");
@@ -88,33 +97,51 @@ int main() {
         }
     }
 
+
+
+
+
     node_t* current = list_of_items.head;
-    while(current != NULL){
 
-        for (int i = 0; i < 11; ++i) {
-            if(stores1[i].distance > range) {
-                current = current->next;
-                continue;
-            }
-            for (int j = 0; j < 11; ++j) {
-                if(strcmp(stores1[i].items[j].item_name,current->item.name) == 0){
-                    finalStores[store_array_name(stores1[i].store_name)].finalItems[j].price = stores1[i].items[j].item_price;
 
-                    strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,current->item.name);
-
-                    current = current->next;
-                }
-            }
-            node_t* current = list_of_items.head;
-        }
+    for (int i = 0; i < 10; ++i) {
+        strcpy(itemHolder[i].item,current->item.name);
+        current->next;
     }
 
 
+
+
+        while(exit_con == 1){
+
+        for (int i = 0; i < 11; ++i) {
+            if(stores1[i].distance > range) {
+            //    current = current->next;
+                continue;
+            }
+            for (int j = 0; j < 11; ++j) {
+                if(strcmp(stores1[i].items[j].item_name,itemHolder[j].item) == 0){
+                    finalStores[store_array_name(stores1[i].store_name)].finalItems[j].price = stores1[i].items[j].item_price;
+
+                    strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[j].item);
+
+                    //current = current->next;
+                }
+            }
+        }
+        exit_con = 0;
+    }
+
+
+    deallocate_list(&list_of_items);
+
+
+
     for (int i = 0; i < 11; ++i) {
-        printf("NAME OF STORE: %s",finalStores[i].store_name);
+        printf("NAME OF STORE: %s\n\n",finalStores[i].store_name);
 
         for (int j = 0; j < 11; ++j) {
-            printf("NAME OF PRODUCT: %s PRICE:%d",finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
+            printf("NAME OF PRODUCT: %s PRICE:%d\n",finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
         }
     }
 
