@@ -13,7 +13,7 @@ typedef struct{
 
 
 typedef struct{
-    char store_name[11];
+    char store_name[15];
     final_items finalItems[11];
 
 }final_stores;
@@ -98,7 +98,12 @@ int main() {
     }
 
 
-
+    for (int i = 0; i < 11; ++i) {
+        for (int j = 0; j < 11; ++j) {
+            finalStores[i].finalItems[j].price = 0;
+            strcpy(finalStores[i].finalItems[j].item_name,"");
+        }
+    }
 
 
     node_t* current = list_of_items.head;
@@ -110,12 +115,10 @@ int main() {
         current = current->next;
     }
 
-    for (int i = 0; i < 11; ++i) {
-        //while(current != NULL){
-            //strcpy(itemHolder[i].item,current->item.name);
-            //current = current->next;
-        //}
-    }
+
+
+
+
 
 
 
@@ -134,9 +137,6 @@ int main() {
 
                         strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[k].item);
                         strcpy(finalStores[store_array_name(stores1[i].store_name)].store_name,stores1[i].store_name);
-
-
-                        //current = current->next;
                 }
                 }
             }
