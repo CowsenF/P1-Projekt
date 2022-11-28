@@ -82,10 +82,10 @@ void database_gen(){
 
 
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 11; ++i) {
         // den har først brug for et butik navn
         fprintf(fptr,"%s distance: %.2f\n", get_store_name(i), drand(0,10));
-        for (int j = 0; j < 10; ++j) {
+        for (int j = 0; j < 11; ++j) {
             fprintf(fptr,"%d: %s: %d\n",j+1,get_product_name(j),rand()%100 +1);
 
         }

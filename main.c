@@ -90,9 +90,9 @@ int main() {
     }
 
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 11; ++i) {
         fscanf(fptr2,"%[^ ] distance: %lf ",stores1[i].store_name,&stores1[i].distance);
-        for (int j = 0; j < 10; ++j) {
+        for (int j = 0; j < 11; ++j) {
             fscanf(fptr2,"%*d: %[^:]: %d ",stores1[i].items[j].item_name,&stores1[i].items[j].item_price);
         }
     }
@@ -103,10 +103,18 @@ int main() {
 
     node_t* current = list_of_items.head;
 
+    int g = 0;
+    while(current != NULL){
+        strcpy(itemHolder[g].item,current->item.name);
+        g++;
+        current = current->next;
+    }
 
-    for (int i = 0; i < 10; ++i) {
-        strcpy(itemHolder[i].item,current->item.name);
-        current->next;
+    for (int i = 0; i < 11; ++i) {
+        //while(current != NULL){
+            //strcpy(itemHolder[i].item,current->item.name);
+            //current = current->next;
+        //}
     }
 
 
@@ -116,16 +124,20 @@ int main() {
 
         for (int i = 0; i < 11; ++i) {
             if(stores1[i].distance > range) {
-            //    current = current->next;
+                //current = current->next;
                 continue;
             }
             for (int j = 0; j < 11; ++j) {
-                if(strcmp(stores1[i].items[j].item_name,itemHolder[j].item) == 0){
-                    finalStores[store_array_name(stores1[i].store_name)].finalItems[j].price = stores1[i].items[j].item_price;
+                for (int k = 0; k < 11; ++k) {
+                    if(strcmp(stores1[i].items[j].item_name,itemHolder[k].item) == 0){
+                        finalStores[store_array_name(stores1[i].store_name)].finalItems[j].price = stores1[i].items[j].item_price;
 
-                    strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[j].item);
+                        strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[k].item);
+                        strcpy(finalStores[store_array_name(stores1[i].store_name)].store_name,stores1[i].store_name);
 
-                    //current = current->next;
+
+                        //current = current->next;
+                }
                 }
             }
         }
@@ -133,7 +145,7 @@ int main() {
     }
 
 
-    deallocate_list(&list_of_items);
+    //deallocate_list(&list_of_items);
 
 
 
@@ -143,6 +155,7 @@ int main() {
         for (int j = 0; j < 11; ++j) {
             printf("NAME OF PRODUCT: %s PRICE:%d\n",finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
         }
+        printf("\n");
     }
 
 
