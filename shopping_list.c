@@ -13,11 +13,14 @@ void add_item(tree_t* list, char* name){
 }
 
 void print_items(tree_t* list){
+    FILE *fptr;
+    fptr = fopen("shopping_list.txt", "w");
     node_t* current = list->head;
     while(current != NULL){
         fprintf(fptr,"%s \n", current->item.name);
         current = current->next;
     }
+    fclose(fptr);
 }
 
 void deallocate_list(tree_t* list){
