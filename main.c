@@ -53,7 +53,6 @@ int store_array_name(char* store_name) {
     }
 }
 
-
 int main() {
 
 
@@ -71,14 +70,14 @@ int main() {
     item_holder itemHolder[11];
 
 
-    printf("Please input the maximum radius of your shopping trip in KM");
+    printf("Please input the maximum radius of your shopping trip in KM\n");
     scanf("%lf",&range);
 
     //To print out user desired item name (Shopping list)
     tree_t list_of_items = {NULL};
     char name[30];
     while (exit_con == 0){
-        printf("Input name(end with 'exit')\n");
+        printf("Enter product (end with 'exit')\n");
         scanf("%s", name);
         if(strcmp(name, "exit") == 0){
             print_items(&list_of_items);
@@ -117,7 +116,7 @@ int main() {
 
 
 
-        while(exit_con == 1){
+    while(exit_con == 1){
 
         for (int i = 0; i < 11; ++i) {
             if(stores1[i].distance > range) {
@@ -143,10 +142,12 @@ int main() {
 
 
     for (int i = 0; i < 11; ++i) {
-        printf("NAME OF STORE: %s\n\n",finalStores[i].store_name);
+        printf("Store: %s\n",finalStores[i].store_name);
 
         for (int j = 0; j < 11; ++j) {
-            printf("NAME OF PRODUCT: %s PRICE:%d\n",finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
+            if(finalStores[i].finalItems[j].price != 0) {
+                printf("Product: %s PRICE:%d\n", finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
+            }
         }
         printf("\n");
     }
