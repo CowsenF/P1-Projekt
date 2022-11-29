@@ -138,7 +138,7 @@ int main() {
     }
 
 
-    //deallocate_list(&list_of_items);
+    deallocate_list(&list_of_items);
 
 
 
