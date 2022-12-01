@@ -2,17 +2,18 @@
 #define P1_PROJEKT_CALCULATE_CHEAPEST_OPTION_H
 #include <stdio.h>
 
-typedef struct {
+
+
+typedef struct{
     char item_name[15];
-    int item_price;
-}item;
+    int price;
+}final_items;
 
-typedef struct {
+typedef struct{
     char store_name[11];
-    double distance;
-    item items[11];
-}stores;
+    final_items finalItems[11];
+}final_stores;
 
-stores* get_list_of_best_stores(stores list_of_stores[], size_t number_of_stores);
+final_stores* get_list_of_best_stores(final_stores list_of_stores[11], size_t number_of_stores);
 
 #endif //P1_PROJEKT_CALCULATE_CHEAPEST_OPTION_H

@@ -6,23 +6,20 @@
 #include "string.h"
 
 
-typedef struct{
-    char item_name[15];
-    int price;
-}final_items;
-
-
-typedef struct{
-    char store_name[15];
-    final_items finalItems[11];
-
-}final_stores;
-
-
 typedef struct {
     char item[15];
 }item_holder;
 
+typedef struct {
+    char item_name[15];
+    int item_price;
+}item;
+
+typedef struct {
+    char store_name[11];
+    double distance;
+    item items[11];
+}stores;
 
 
 
@@ -147,6 +144,21 @@ int main() {
         for (int j = 0; j < 11; ++j) {
             if(finalStores[i].finalItems[j].price != 0) {
                 printf("Product: %s PRICE:%d\n", finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
+            }
+        }
+        printf("\n");
+    }
+
+    printf("HEJEHJEJJ \n\n");
+
+    final_stores *new_final_store = get_list_of_best_stores(finalStores, sizeof(finalStores)/sizeof(finalStores[0]));
+
+    for (int i = 0; i < 11; ++i) {
+        printf("Store: %s\n",new_final_store[i].store_name);
+
+        for (int j = 0; j < 11; ++j) {
+            if(finalStores[i].finalItems[j].price != 0) {
+                printf("Product: %s PRICE:%d\n", new_final_store[i].finalItems[j].item_name,new_final_store[i].finalItems[j].price);
             }
         }
         printf("\n");
