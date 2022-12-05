@@ -22,12 +22,6 @@ int cmpfunc (const void * a, const void * b) {
 
 //Get an ordered list of stores
 final_stores* get_list_of_best_stores(final_stores list_of_stores[11], size_t number_of_stores) {
-    final_stores *return_list_of_stores = malloc(number_of_stores);
-
-
-    for (int i = 0; i < number_of_stores; ++i) {
-        return_list_of_stores[i] = list_of_stores[i];
-    }
 
     qsort(list_of_stores, number_of_stores, sizeof(final_stores), cmpfunc);
 

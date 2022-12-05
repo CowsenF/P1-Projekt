@@ -50,29 +50,76 @@ int store_array_name(char* store_name) {
     }
 }
 
+tree_t get_list_of_items();
+stores * scan_file_into_stores(FILE * fptr2, size_t size_of_list);
+final_stores * setup_finalStores(size_t size_of_list);
+item_holder * setup_itemHolder(node_t* current, size_t size_of_list);
+final_stores * convert_store_type(stores *stores1, final_stores *finalStores, item_holder *itemHolder, double range);
+void print_stores_prices(final_stores *final_stores);
+
+
+
+
 int main() {
 
+    //test:
+    size_t test_size_of_list_of_stores = 11;
 
 
     database_gen();
 
-    int exit_con=0;
     double range = 0;
     // For database
     FILE *fptr2;
     fptr2 = fopen ("store_list.txt","r");
-    stores stores1[11];
     // For the final struct
-    final_stores finalStores[11];
-    item_holder itemHolder[11];
-
 
     printf("Please input the maximum radius of your shopping trip in KM\n");
     scanf("%lf",&range);
 
+    tree_t list_of_items = get_list_of_items();
+
+
+    //VI SKAL HAVE EN MÅDE HVORPÅ VI VED HVOR LANG LISTEN ER
+    stores *stores1 = scan_file_into_stores(fptr2, 11);
+
+    final_stores *finalStores = setup_finalStores(11);
+
+    node_t* current = list_of_items.head;
+    item_holder *itemHolder = setup_itemHolder(current, 11);
+
+
+    finalStores = convert_store_type(stores1, finalStores, itemHolder, range);
+
+    deallocate_list(&list_of_items);
+
+    print_stores_prices(finalStores);
+
+    final_stores *new_final_store = get_list_of_best_stores(finalStores, test_size_of_list_of_stores);
+
+    print_stores_prices(finalStores);
+
+    // Lav en struct af struct hvor vis string compair er true så sæt varens info ind i struct
+
+    // sammelign alle varer for at finde hvor det er billgeste
+
+    // Print Endlig struct
+
+    fclose(fptr2);
+
+    //get_list_of_items()
+    //return: list_of_items
+
     //To print out user desired item name (Shopping list)
+
+    return 0;
+}
+
+//To print out user desired item name (Shopping list)
+tree_t get_list_of_items(){
     tree_t list_of_items = {NULL};
     char name[30];
+    int exit_con=0;
     while (exit_con == 0){
         printf("Enter product (end with 'exit')\n");
         scanf("%s", name);
@@ -84,104 +131,80 @@ int main() {
             add_item(&list_of_items, name);
         }
     }
+    return list_of_items;
+}
 
-
-    for (int i = 0; i < 11; ++i) {
+stores * scan_file_into_stores(FILE * fptr2, size_t size_of_list) {
+    stores *stores1 = calloc(size_of_list, sizeof(stores));
+    for (int i = 0; i < size_of_list; ++i) {
         fscanf(fptr2,"%[^ ] distance: %lf ",stores1[i].store_name,&stores1[i].distance);
-        for (int j = 0; j < 11; ++j) {
+        for (int j = 0; j < size_of_list; ++j) {
             fscanf(fptr2,"%*d: %[^:]: %d ",stores1[i].items[j].item_name,&stores1[i].items[j].item_price);
         }
     }
+    return stores1;
+}
 
+final_stores * setup_finalStores(size_t size_of_list) {
+    final_stores *finalStores = calloc(size_of_list, sizeof(final_stores));
 
-    for (int i = 0; i < 11; ++i) {
-        for (int j = 0; j < 11; ++j) {
+    if (finalStores == NULL) {
+        printf("Unable to allocate memory\n");
+    }
+
+    for (int i = 0; i < size_of_list; ++i) {
+        for (int j = 0; j < size_of_list; ++j) {
             finalStores[i].finalItems[j].price = 0;
             strcpy(finalStores[i].finalItems[j].item_name,"");
         }
     }
+    return finalStores;
+}
 
-
-    node_t* current = list_of_items.head;
-
+item_holder * setup_itemHolder(node_t* current, size_t size_of_list) {
+    item_holder *itemHolder = calloc(size_of_list, sizeof(item_holder));;
     int g = 0;
     while(current != NULL){
         strcpy(itemHolder[g].item,current->item.name);
         g++;
         current = current->next;
     }
+    return itemHolder;
+}
 
+final_stores * convert_store_type(stores *stores1, final_stores *finalStores, item_holder *itemHolder, double range) {
 
+    for (int i = 0; i < 11; ++i) {
+        if(stores1[i].distance > range) {
+            continue;
+        }
+        for (int j = 0; j < 11; ++j) {
+            for (int k = 0; k < 11; ++k) {
+                if(strcmp(stores1[i].items[j].item_name,itemHolder[k].item) == 0){
+                    finalStores[store_array_name(stores1[i].store_name)].finalItems[j].price = stores1[i].items[j].item_price;
 
-    while(exit_con == 1){
+                    strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[k].item);
+                    strcpy(finalStores[store_array_name(stores1[i].store_name)].store_name,stores1[i].store_name);
 
-        for (int i = 0; i < 11; ++i) {
-            if(stores1[i].distance > range) {
-                continue;
-            }
-            for (int j = 0; j < 11; ++j) {
-                for (int k = 0; k < 11; ++k) {
-                    if(strcmp(stores1[i].items[j].item_name,itemHolder[k].item) == 0){
-                        finalStores[store_array_name(stores1[i].store_name)].finalItems[j].price = stores1[i].items[j].item_price;
-
-                        strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[k].item);
-                        strcpy(finalStores[store_array_name(stores1[i].store_name)].store_name,stores1[i].store_name);
-                }
                 }
             }
         }
-        exit_con = 0;
     }
 
+    return finalStores;
+}
 
-    deallocate_list(&list_of_items);
-
-
+void print_stores_prices(final_stores *final_stores){
 
     for (int i = 0; i < 11; ++i) {
-        printf("Store: %s\n",finalStores[i].store_name);
+        printf("Store: %s\n",final_stores[i].store_name);
 
         for (int j = 0; j < 11; ++j) {
-            if(finalStores[i].finalItems[j].price != 0) {
-                printf("Product: %s PRICE:%d\n", finalStores[i].finalItems[j].item_name,finalStores[i].finalItems[j].price);
+            if(final_stores[i].finalItems[j].price != 0) {
+                printf("Product: %s PRICE:%d\n", final_stores[i].finalItems[j].item_name,final_stores[i].finalItems[j].price);
             }
         }
         printf("\n");
     }
 
-    printf("HEJEHJEJJ \n\n");
-
-    final_stores *new_final_store = get_list_of_best_stores(finalStores, sizeof(finalStores)/sizeof(finalStores[0]));
-
-    for (int i = 0; i < 11; ++i) {
-        printf("Store: %s\n",new_final_store[i].store_name);
-
-        for (int j = 0; j < 11; ++j) {
-            if(finalStores[i].finalItems[j].price != 0) {
-                printf("Product: %s PRICE:%d\n", new_final_store[i].finalItems[j].item_name,new_final_store[i].finalItems[j].price);
-            }
-        }
-        printf("\n");
-    }
-
-
-
-    // Lav en struct af struct hvor vis string compair er true så sæt varens info ind i struct
-
-    // sammelign alle varer for at finde hvor det er billgeste
-
-    // Print Endlig struct
-
-
-
-
-
-    fclose(fptr2);
-
-
-
-
-
-
-    return 0;
 }

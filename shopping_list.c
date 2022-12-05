@@ -17,7 +17,8 @@ void print_items(tree_t* list){
     fptr = fopen("shopping_list.txt", "w");
     node_t* current = list->head;
     while(current != NULL){
-        fprintf(fptr,"%s \n", current->item.name);
+        printf("%s \n", current->item.name);
+        //fprintf(fptr,"%s \n", current->item.name);
         current = current->next;
     }
     fclose(fptr);
