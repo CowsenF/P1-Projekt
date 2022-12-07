@@ -101,7 +101,16 @@ int main() {
 
     print_stores_prices(finalStores, size_of_list_of_stores);
 
-    best_stores hej = get_list_of_best_stores(finalStores, size_of_list_of_stores, amount_of_stores_to_visit);
+    best_stores bestStores = get_list_of_best_stores(finalStores, size_of_list_of_stores, amount_of_stores_to_visit);
+
+    for (int i = 0; i < bestStores.number_of_stores; ++i) {
+        printf("%s\n", bestStores.bestStoreForItem[i].storeName);
+        for (int j = 0; j < 11; ++j) {
+            if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
+            printf("Buy %s for %d\n", bestStores.bestStoreForItem[i].bestFinalItems[j].item_name, bestStores.bestStoreForItem[i].bestFinalItems[j].price);
+        }
+        printf("\n");
+    }
 
     //print_stores_prices(finalStores,size_of_list_of_stores);
 
