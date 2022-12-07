@@ -64,7 +64,16 @@ double drand ( double low, double high )
     return ( (double)rand() * ( high - low ) ) / (double)RAND_MAX + low;
 }
 
+int point_maker(){
 
+    int x = rand() % 10;
+    // first it will decide if it will be a negative or a positive coordinate.
+    if(rand() % 2 == 0){
+        x = x - x * 2;
+    }
+    return x;
+
+}
 
 void database_gen(size_t *store_num){
     // Jeg tænker at man starter med at sætte to lister op som indenholder hvad navne på butikerne er og en som
@@ -87,8 +96,7 @@ void database_gen(size_t *store_num){
         // den har først brug for et butik navn
         fprintf(fptr,"%s distance: %.2f\n", get_store_name(i), drand(0,10));
         for (int j = 0; j < 11; ++j) {
-            fprintf(fptr,"%d: %s: %d\n",j+1,get_product_name(j),rand()%100 +1);
-
+            fprintf(fptr,"%s cordinates: x:%d y:%d\n", get_store_name(i), point_maker(),point_maker());
         }
     }
 
