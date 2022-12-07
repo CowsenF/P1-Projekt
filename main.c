@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "shopping_list.h"
 #include "database_gen.h"
 #include "CalculateCheapestOption.h"
@@ -18,6 +19,8 @@ typedef struct {
 typedef struct {
     char store_name[11];
     double distance;
+    int x;
+    int y;
     item items[11];
 }stores;
 
@@ -57,6 +60,7 @@ final_stores * setup_finalStores(size_t size_of_list);
 item_holder * setup_itemHolder(node_t* current, size_t size_of_list);
 final_stores * convert_store_type(stores *stores1, final_stores *finalStores, item_holder *itemHolder, double range, size_t size_of_list);
 void print_stores_prices(final_stores *final_stores, size_t size_of_list);
+double distance_formula(int x1,int x2, int y1, int y2);
 
 int main() {
 
@@ -85,6 +89,10 @@ int main() {
 
     node_t* current = list_of_items.head;
     item_holder *itemHolder = setup_itemHolder(current, size_of_list_of_stores);
+
+    for (int i = 0; i < 11; ++i) {
+        stores1[i].distance = distance_formula(0,stores1[i].x,0,stores1[i].y);
+    }
 
 
     finalStores = convert_store_type(stores1, finalStores, itemHolder, range, size_of_list_of_stores);
@@ -135,7 +143,7 @@ tree_t get_list_of_items(){
 stores * scan_file_into_stores(FILE * fptr2, size_t size_of_list) {
     stores *stores1 = calloc(size_of_list, sizeof(stores));
     for (int i = 0; i < size_of_list; ++i) {
-        fscanf(fptr2,"%[^ ] distance: %lf ",stores1[i].store_name,&stores1[i].distance);
+        fscanf(fptr2,"%[^ ] cordinates: x:%d y:%d ",stores1[i].store_name,&stores1[i].x,&stores1[i].y);
         for (int j = 0; j < 11; ++j) {
             fscanf(fptr2,"%*d: %[^:]: %d ",stores1[i].items[j].item_name,&stores1[i].items[j].item_price);
         }
@@ -205,4 +213,7 @@ void print_stores_prices(final_stores *final_stores, size_t size_of_list){
         printf("\n");
     }
 
+}
+double distance_formula(int x1,int x2, int y1, int y2){
+    return sqrt(pow((x2-x1),2)+ pow((y2-y1),2));
 }
