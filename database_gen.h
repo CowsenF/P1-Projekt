@@ -7,4 +7,3 @@ char* get_product_name(int product_num);
 
 double drand ( double low, double high );
 
-int point_maker();
