@@ -66,7 +66,7 @@ double drand ( double low, double high )
 
 
 
-void database_gen(){
+void database_gen(size_t *store_num){
     // Jeg tænker at man starter med at sætte to lister op som indenholder hvad navne på butikerne er og en som
     // kigger på mad navne
 
@@ -79,10 +79,11 @@ void database_gen(){
     fptr = fopen ("store_list.txt","w");
 
 
+    //test:
+    *store_num = 11;
 
 
-
-    for (int i = 0; i < 11; ++i) {
+    for (int i = 0; i < *store_num; ++i) {
         // den har først brug for et butik navn
         fprintf(fptr,"%s distance: %.2f\n", get_store_name(i), drand(0,10));
         for (int j = 0; j < 11; ++j) {
