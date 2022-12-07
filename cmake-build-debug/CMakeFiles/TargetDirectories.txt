@@ -1,3 +1,3 @@
-C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/cmake-build-debug/CMakeFiles/P1_Projekt.dir
-C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/marku/CLionProjects/P1-Projekt/cmake-build-debug/CMakeFiles/P1_Projekt.dir
+C:/Users/marku/CLionProjects/P1-Projekt/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/marku/CLionProjects/P1-Projekt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
