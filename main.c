@@ -6,7 +6,6 @@
 #include "stdlib.h"
 #include "string.h"
 
-
 typedef struct {
     char item[15];
 }item_holder;
@@ -97,12 +96,14 @@ int main() {
 
     finalStores = convert_store_type(stores1, finalStores, itemHolder, range, size_of_list_of_stores);
 
+    free(itemHolder);
+    free(stores1);
     deallocate_list(&list_of_items);
 
     print_stores_prices(finalStores, size_of_list_of_stores);
 
     best_stores bestStores = get_list_of_best_stores(finalStores, size_of_list_of_stores, amount_of_stores_to_visit);
-
+    free(finalStores);
     for (int i = 0; i < bestStores.number_of_stores; ++i) {
         printf("%s\n", bestStores.bestStoreForItem[i].storeName);
         for (int j = 0; j < 11; ++j) {
@@ -111,8 +112,6 @@ int main() {
         }
         printf("\n");
     }
-
-    //print_stores_prices(finalStores,size_of_list_of_stores);
 
     // Lav en struct af struct hvor vis string compair er true så sæt varens info ind i struct
 
