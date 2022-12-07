@@ -93,7 +93,7 @@ int main() {
 
     print_stores_prices(finalStores, size_of_list_of_stores);
 
-    //final_stores *new_final_store = get_list_of_best_stores(finalStores, size_of_list_of_stores);
+    best_stores hej = get_list_of_best_stores(finalStores, size_of_list_of_stores, amount_of_stores_to_visit);
 
     //print_stores_prices(finalStores,size_of_list_of_stores);
 

@@ -1,6 +1,7 @@
 #ifndef P1_PROJEKT_CALCULATE_CHEAPEST_OPTION_H
 #define P1_PROJEKT_CALCULATE_CHEAPEST_OPTION_H
 #include <stdio.h>
+#include "string.h"
 
 
 
