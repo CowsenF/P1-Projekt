@@ -11,6 +11,8 @@ CMakeFiles/P1_Projekt.dir/main.c.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
  C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\shopping_list.h \
  C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\database_gen.h \
  C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\CalculateCheapestOption.h \
@@ -19,7 +21,6 @@ CMakeFiles/P1_Projekt.dir/main.c.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
- C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \

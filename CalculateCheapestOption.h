@@ -12,6 +12,7 @@ typedef struct{
 typedef struct{
     char store_name[11];
     final_items finalItems[11];
+    double distance;
 }final_stores;
 
 final_stores* get_list_of_best_stores(final_stores list_of_stores[11], size_t number_of_stores);
