@@ -77,7 +77,7 @@ int point_maker(){
 
 
 
-void database_gen(){
+void database_gen(size_t *store_num){
     // Jeg tænker at man starter med at sætte to lister op som indenholder hvad navne på butikerne er og en som
     // kigger på mad navne
 
@@ -90,10 +90,11 @@ void database_gen(){
     fptr = fopen ("store_list.txt","w");
 
 
+    //test:
+    *store_num = 11;
 
 
-
-    for (int i = 0; i < 11; ++i) {
+    for (int i = 0; i < *store_num; ++i) {
         // den har først brug for et butik navn
         fprintf(fptr,"%s cordinates: x:%d y:%d\n", get_store_name(i), point_maker(),point_maker());
         for (int j = 0; j < 11; ++j) {

@@ -15,6 +15,11 @@ typedef struct{
     double distance;
 }final_stores;
 
-final_stores* get_list_of_best_stores(final_stores list_of_stores[11], size_t number_of_stores);
+typedef struct{
+    size_t number_of_stores;
+    final_stores *finalStores;
+}best_stores;
+
+best_stores get_list_of_best_stores(final_stores *list_of_stores, size_t number_of_stores, int stores_willing_to_visit);
 
 #endif //P1_PROJEKT_CALCULATE_CHEAPEST_OPTION_H
