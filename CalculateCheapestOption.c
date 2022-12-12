@@ -40,7 +40,7 @@ best_stores get_list_of_best_stores(final_stores *list_of_stores, size_t number_
     bestStores.number_of_stores = 0;
 
     bestStores.finalStores = (final_stores*) malloc(stores_willing_to_visit * sizeof(final_stores));
-    bestStores.bestStoreForItem = (best_store_for_item*) malloc(11 * sizeof(best_store_for_item));
+    bestStores.bestStoreForItem = calloc(11, sizeof(best_store_for_item));
     int saved_sum = 0;
     int saved_store = 0;
 
@@ -94,6 +94,7 @@ best_stores get_list_of_best_stores(final_stores *list_of_stores, size_t number_
         strcpy(bestStores.bestStoreForItem[0].storeName, bestStores.finalStores[0].store_name);
         for (int i = 0; i < 11; i++) {
             if (bestStores.finalStores[0].finalItems[i].price == 0) { continue;}
+
             bestStores.bestStoreForItem[0].bestFinalItems[i].price = bestStores.finalStores[0].finalItems[i].price;
             strcpy(bestStores.bestStoreForItem[0].bestFinalItems[i].item_name, bestStores.finalStores[0].finalItems[i].item_name);
         }
