@@ -59,6 +59,7 @@ final_stores * setup_finalStores(size_t size_of_list);
 item_holder * setup_itemHolder(node_t* current, size_t size_of_list);
 final_stores * convert_store_type(stores *stores1, final_stores *finalStores, item_holder *itemHolder, double range, size_t size_of_list);
 void print_stores_prices(final_stores *final_stores, size_t size_of_list);
+void print_best_stores(best_stores bestStores);
 double distance_formula(int x1,int x2, int y1, int y2);
 
 int main() {
@@ -104,15 +105,8 @@ int main() {
 
     best_stores bestStores = get_list_of_best_stores(finalStores, size_of_list_of_stores, amount_of_stores_to_visit);
     free(finalStores);
-    for (int i = 0; i < bestStores.number_of_stores; ++i) {
-        printf("%s\n", bestStores.bestStoreForItem[i].storeName);
-        for (int j = 0; j < 11; ++j) {
-            if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
-            printf("Buy %s for %d\n", bestStores.bestStoreForItem[i].bestFinalItems[j].item_name, bestStores.bestStoreForItem[i].bestFinalItems[j].price);
-        }
-        printf("\n");
-    }
 
+    print_best_stores(bestStores);
     // Lav en struct af struct hvor vis string compair er true så sæt varens info ind i struct
 
     // sammelign alle varer for at finde hvor det er billgeste
@@ -148,6 +142,7 @@ tree_t get_list_of_items(){
     return list_of_items;
 }
 
+//Get data form file and set it into store list
 stores * scan_file_into_stores(FILE * fptr2, size_t size_of_list) {
     stores *stores1 = calloc(size_of_list, sizeof(stores));
     for (int i = 0; i < size_of_list; ++i) {
@@ -222,6 +217,18 @@ void print_stores_prices(final_stores *final_stores, size_t size_of_list){
     }
 
 }
+
+void print_best_stores(best_stores bestStores) {
+    for (int i = 0; i < bestStores.number_of_stores; ++i) {
+        printf("%s\n", bestStores.bestStoreForItem[i].storeName);
+        for (int j = 0; j < 11; ++j) {
+            if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
+            printf("Buy %s for %d\n", bestStores.bestStoreForItem[i].bestFinalItems[j].item_name, bestStores.bestStoreForItem[i].bestFinalItems[j].price);
+        }
+        printf("\n");
+    }
+}
+
 double distance_formula(int x1,int x2, int y1, int y2){
     return sqrt(pow((x2-x1),2)+ pow((y2-y1),2));
 }
