@@ -31,6 +31,7 @@ best_stores copy_store(best_stores bestStores, final_stores finalStores, int num
         strcpy(bestStores.finalStores[number].finalItems[i].item_name, finalStores.finalItems[i].item_name);
     }
     strcpy(bestStores.finalStores[number].store_name, finalStores.store_name);
+    bestStores.finalStores[number].distance = finalStores.distance;
 
     return bestStores;
 }
@@ -75,6 +76,7 @@ best_stores get_list_of_best_stores(final_stores *list_of_stores, size_t number_
         strcpy(bestStores.finalStores[0].finalItems[i].item_name, list_of_stores[saved_store].finalItems[i].item_name);
     }
     strcpy(bestStores.finalStores[0].store_name, list_of_stores[saved_store].store_name);
+    bestStores.finalStores[0].distance = list_of_stores[saved_store].distance;
     bestStores.number_of_stores++;
 
     //In this code block we compare the rest of stores to bestStores stores.
@@ -109,6 +111,7 @@ best_stores get_list_of_best_stores(final_stores *list_of_stores, size_t number_
     //If their only one store then this code block will be run:
     if(bestStores.number_of_stores == 1) {
         strcpy(bestStores.bestStoreForItem[0].storeName, bestStores.finalStores[0].store_name);
+        bestStores.bestStoreForItem[0].distance = bestStores.finalStores[0].distance;
         for (int i = 0; i < 11; i++) {
             if (bestStores.finalStores[0].finalItems[i].price == 0) { continue;}
 
@@ -123,6 +126,7 @@ best_stores get_list_of_best_stores(final_stores *list_of_stores, size_t number_
     //First copies the name of the stores:
     for (int i = 0; i < bestStores.number_of_stores; ++i) {
         strcpy(bestStores.bestStoreForItem[i].storeName, bestStores.finalStores[i].store_name);
+        bestStores.bestStoreForItem[i].distance = bestStores.finalStores[i].distance;
     }
 
     //Thereafter the items:
