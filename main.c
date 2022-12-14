@@ -26,27 +26,27 @@ typedef struct {
 
 int store_array_name(char* store_name) {
 
-    if (strcmp(store_name, "Bilka") == 0) {
+    if (strcmp(store_name, "bilka") == 0) {
         return 0;
-    } else if (strcmp(store_name, "Rema") == 0) {
+    } else if (strcmp(store_name, "rema") == 0) {
         return 1;
-    } else if (strcmp(store_name, "Fotex") == 0) {
+    } else if (strcmp(store_name, "fotex") == 0) {
         return 2;
-    } else if (strcmp(store_name, "Spar") == 0) {
+    } else if (strcmp(store_name, "spar") == 0) {
         return 3;
-    } else if (strcmp(store_name, "Daglig_Brusen") == 0) {
+    } else if (strcmp(store_name, "daglig_Brusen") == 0) {
         return 4;
-    } else if (strcmp(store_name, "Coop_365") == 0) {
+    } else if (strcmp(store_name, "coop_365") == 0) {
         return 5;
     } else if (strcmp(store_name, "nem_handel") == 0) {
         return 6;
     } else if (strcmp(store_name, "kobmand") == 0) {
         return 7;
-    } else if (strcmp(store_name, "Fleggard") == 0) {
+    } else if (strcmp(store_name, "fleggard") == 0) {
         return 8;
-    } else if (strcmp(store_name, "Netto") == 0) {
+    } else if (strcmp(store_name, "netto") == 0) {
         return 9;
-    } else if (strcmp(store_name, "Meny") == 0) {
+    } else if (strcmp(store_name, "meny") == 0) {
         return 10;
     } else {
         printf("No store can be found");
@@ -62,16 +62,18 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
 void print_stores_prices(final_stores *final_stores, size_t size_of_list);
 void print_best_stores(best_stores bestStores);
 double distance_formula(int x1,int x2, int y1, int y2);
-void find_shopping_route();
+void find_shopping_route(size_t size_of_list_of_stores);
 stores * catalog(FILE * fptr2, char ch);
 
 int main() {
+    size_t size_of_list_of_stores;
+    database_gen(&size_of_list_of_stores);
     char input;
     do {
         printf("Do you want a shopping list y/n\n");
         scanf(" %c",&input);
         if(input == 'y') {
-            find_shopping_route();
+            find_shopping_route(size_of_list_of_stores);
         }
     } while (input != 'n');
 
@@ -79,10 +81,8 @@ int main() {
     return 0;
 }
 
-void find_shopping_route() {
+void find_shopping_route(size_t size_of_list_of_stores) {
 
-    size_t size_of_list_of_stores;
-    database_gen(&size_of_list_of_stores);
 
     double range = 0;
     int amount_of_stores_to_visit = 0;
@@ -157,6 +157,7 @@ tree_t get_list_of_items(){
     int i;
     while (exit_con == 0){
         printf("Enter product (end with 'exit')\n");
+        scanf(" %s", name);
         scanf("%s",nameholder);
         for(i=0; i<30;++i){
             name[i]=tolower(nameholder[i]);
@@ -224,7 +225,7 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
 
                     strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[k].item);
                     strcpy(finalStores[store_array_name(stores1[i].store_name)].store_name,stores1[i].store_name);
-
+                    finalStores[store_array_name(stores1[i].store_name)].distance = stores1[i].distance;
                 }
             }
         }
@@ -250,10 +251,15 @@ void print_stores_prices(final_stores *final_stores, size_t size_of_list){
 
 void print_best_stores(best_stores bestStores) {
     for (int i = 0; i < bestStores.number_of_stores; ++i) {
-        printf("%s\n", bestStores.bestStoreForItem[i].storeName);
+        for (int j = 0; j < 11; ++j) {
+            if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
+            printf("%s\n", bestStores.bestStoreForItem[i].storeName);
+            break;
+        }
         for (int j = 0; j < 11; ++j) {
             if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
             printf("Buy %s for %d\n", bestStores.bestStoreForItem[i].bestFinalItems[j].item_name, bestStores.bestStoreForItem[i].bestFinalItems[j].price);
+            printf("The store is: %lf km away\n", bestStores.bestStoreForItem[i].distance);
         }
         printf("\n");
     }

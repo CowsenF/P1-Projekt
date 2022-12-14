@@ -19,6 +19,7 @@ typedef struct{
 typedef struct{
     char storeName[11];
     final_items bestFinalItems[11];
+    double distance;
 }best_store_for_item;
 
 typedef struct{
