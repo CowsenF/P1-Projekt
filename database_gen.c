@@ -8,29 +8,28 @@ char* get_store_name(int store_num){
 
     switch (store_num) {
         case 0:
-            return "Bilka";//
+            return "bilka";//
         case 1:
-            return "Rema"; //
+            return "rema"; //
         case 2:
-            return "Fotex"; //
+            return "fotex"; //
         case 3:
-            return "Spar"; //
+            return "spar"; //
         case 4:
-            return "Daglig_Brusen"; //
+            return "daglig_Brusen"; //
         case 5:
-            return "Coop_365"; //
+            return "coop_365"; //
         case 6:
             return "nem_handel"; //
         case 7:
             return "kobmand"; //
         case 8:
-            return "Fleggard"; //
+            return "fleggard"; //
         case 9:
-            return "Netto";
+            return "netto";
         case 10:
-            return "Meny";
+            return "meny";
     }
-
 }
 char* get_product_name(int product_num){
     switch (product_num) {

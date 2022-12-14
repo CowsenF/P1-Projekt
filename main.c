@@ -62,8 +62,22 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
 void print_stores_prices(final_stores *final_stores, size_t size_of_list);
 void print_best_stores(best_stores bestStores);
 double distance_formula(int x1,int x2, int y1, int y2);
+void find_shopping_route();
 
 int main() {
+    char input;
+    do {
+        printf("Do you want a shopping list y/n\n");
+        scanf(" %c",&input);
+        if(input == 'y') {
+            find_shopping_route();
+        }
+    } while (input != 'n');
+
+    return 0;
+}
+
+void find_shopping_route() {
 
     size_t size_of_list_of_stores;
     database_gen(&size_of_list_of_stores);
@@ -121,8 +135,8 @@ int main() {
 
     //To print out user desired item name (Shopping list)
 
-    return 0;
 }
+
 
 //To print out user desired item name (Shopping list)
 tree_t get_list_of_items(){
