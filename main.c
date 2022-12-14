@@ -62,47 +62,51 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
 void print_stores_prices(final_stores *final_stores, size_t size_of_list);
 void print_best_stores(best_stores bestStores);
 double distance_formula(int x1,int x2, int y1, int y2);
-void find_shopping_route(size_t size_of_list_of_stores);
-stores * catalog(FILE * fptr2, char ch);
+void find_shopping_route(size_t size_of_list_of_stores, FILE *fptr2);
+stores * catalog(FILE * fptr2);
 
 int main() {
     size_t size_of_list_of_stores;
     database_gen(&size_of_list_of_stores);
+    FILE *fptr2;
+    fptr2 = fopen ("store_list.txt","r");
     char input;
     do {
-        printf("Do you want a shopping list y/n\n");
+        printf("Do you want a shopping list: s\n");
+        printf("Do you want to see the catalogues: c\n");
+        printf("Do you want to quit the program: q\n");
         scanf(" %c",&input);
-        if(input == 'y') {
-            find_shopping_route(size_of_list_of_stores);
+        if(input == 's') {
+            find_shopping_route(size_of_list_of_stores, fptr2);
         }
-    } while (input != 'n');
+        else if(input == 'c') {
+            catalog(fptr2);
+        }
+        printf("\n");
+    } while (input != 'q');
 
 
     return 0;
 }
 
-void find_shopping_route(size_t size_of_list_of_stores) {
+void find_shopping_route(size_t size_of_list_of_stores, FILE *fptr2) {
 
 
     double range = 0;
     int amount_of_stores_to_visit = 0;
-    char cata, ch;
     // For database
-    FILE *fptr2;
-    fptr2 = fopen ("store_list.txt","r");
+    //FILE *fptr2;
+    //fptr2 = fopen ("store_list.txt","r");
 
     // For the final struct
-    printf("Do you wish to see the catalogues (y/n)?\n");
-    scanf(" %c", &cata);
 
-    if(cata == 'y') {
-        catalog(fptr2, ch);
-    } else if (cata == 'n') {
-        printf("Please input the maximum radius of your shopping trip in KM\n");
-        scanf("%lf",&range);
-        printf("Please input the maximum amount of stores you want to visit\n");
-        scanf("%d", &amount_of_stores_to_visit);
-    }
+
+
+    printf("Please input the maximum radius of your shopping trip in KM\n");
+    scanf("%lf",&range);
+    printf("Please input the maximum amount of stores you want to visit\n");
+    scanf("%d", &amount_of_stores_to_visit);
+
 
     tree_t list_of_items = get_list_of_items();
 
@@ -269,7 +273,8 @@ double distance_formula(int x1,int x2, int y1, int y2){
     return sqrt(pow((x2-x1),2)+ pow((y2-y1),2));
 }
 
-stores * catalog(FILE * fptr2, char ch) {
+stores * catalog(FILE * fptr2) {
+    char ch;
     if (fptr2 == NULL)
     {
         perror("Error while opening the file.\n");
