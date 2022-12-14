@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <ctype.h>
 #include "shopping_list.h"
 #include "database_gen.h"
 #include "CalculateCheapestOption.h"
@@ -127,10 +128,15 @@ int main() {
 tree_t get_list_of_items(){
     tree_t list_of_items = {NULL};
     char name[30];
+    char nameholder[30];
     int exit_con=0;
+    int i;
     while (exit_con == 0){
         printf("Enter product (end with 'exit')\n");
-        scanf("%s", name);
+        scanf("%s",nameholder);
+        for(i=0; i<30;++i){
+            name[i]=tolower(nameholder[i]);
+        }
         if(strcmp(name, "exit") == 0){
             print_items(&list_of_items);
             //deallocate_list(&list_of_items);

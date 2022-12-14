@@ -35,27 +35,27 @@ char* get_store_name(int store_num){
 char* get_product_name(int product_num){
     switch (product_num) {
         case 0:
-            return "Beef";//
+            return "beef";//
         case 1:
-            return "Milk"; //
+            return "milk"; //
         case 2:
-            return "Bread"; //
+            return "bread"; //
         case 3:
-            return "Honey"; //
+            return "honey"; //
         case 4:
-            return "Salami"; //
+            return "salami"; //
         case 5:
-            return "Cooking_oil"; //
+            return "cooking_oil"; //
         case 6:
-            return "Toilet_paper"; //
+            return "toilet_paper"; //
         case 7:
-            return "Coffee"; //
+            return "coffee"; //
         case 8:
-            return "Noodles"; //
+            return "noodles"; //
         case 9:
-            return "Monster";
+            return "monster";
         case 10:
-            return "Pizza";
+            return "pizza";
     }
 }
 
