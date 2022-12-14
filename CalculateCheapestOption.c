@@ -103,6 +103,7 @@ best_stores get_list_of_best_stores(final_stores *list_of_stores, size_t number_
         if(biggest_save == 0) { break;}
         //We save the store in bestStores for a later use.
         bestStores = copy_store(bestStores, list_of_stores[saved_store], i);
+
         bestStores.number_of_stores++;
     }
 

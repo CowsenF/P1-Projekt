@@ -208,7 +208,7 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
 
                     strcpy(finalStores[store_array_name(stores1[i].store_name)].finalItems[j].item_name,itemHolder[k].item);
                     strcpy(finalStores[store_array_name(stores1[i].store_name)].store_name,stores1[i].store_name);
-
+                    finalStores[store_array_name(stores1[i].store_name)].distance = stores1[i].distance;
                 }
             }
         }
@@ -234,10 +234,15 @@ void print_stores_prices(final_stores *final_stores, size_t size_of_list){
 
 void print_best_stores(best_stores bestStores) {
     for (int i = 0; i < bestStores.number_of_stores; ++i) {
-        printf("%s\n", bestStores.bestStoreForItem[i].storeName);
+        for (int j = 0; j < 11; ++j) {
+            if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
+            printf("%s\n", bestStores.bestStoreForItem[i].storeName);
+            break;
+        }
         for (int j = 0; j < 11; ++j) {
             if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
             printf("Buy %s for %d\n", bestStores.bestStoreForItem[i].bestFinalItems[j].item_name, bestStores.bestStoreForItem[i].bestFinalItems[j].price);
+            printf("The store is: %lf km away\n", bestStores.bestStoreForItem[i].distance);
         }
         printf("\n");
     }
