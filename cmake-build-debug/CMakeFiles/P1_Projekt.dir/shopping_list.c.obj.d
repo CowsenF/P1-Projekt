@@ -1,5 +1,5 @@
 CMakeFiles/P1_Projekt.dir/shopping_list.c.obj: \
- C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\shopping_list.c \
+ C:\Users\tkwa\OneDrive\Dokumenter\GitHub\P1-Projekt\shopping_list.c \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
@@ -23,4 +23,4 @@ CMakeFiles/P1_Projekt.dir/shopping_list.c.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\shopping_list.h
+ C:\Users\tkwa\OneDrive\Dokumenter\GitHub\P1-Projekt\shopping_list.h

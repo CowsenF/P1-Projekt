@@ -1,6 +1,6 @@
 CMakeFiles/P1_Projekt.dir/database_gen.c.obj: \
- C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\database_gen.c \
- C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\database_gen.h \
+ C:\Users\tkwa\OneDrive\Dokumenter\GitHub\P1-Projekt\database_gen.c \
+ C:\Users\tkwa\OneDrive\Dokumenter\GitHub\P1-Projekt\database_gen.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \

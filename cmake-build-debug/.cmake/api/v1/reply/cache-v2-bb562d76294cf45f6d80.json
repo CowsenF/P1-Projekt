@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/cmake-build-debug"
+			"value" : "c:/Users/tkwa/OneDrive/Dokumenter/GitHub/P1-Projekt/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "24"
+			"value" : "23"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -130,12 +130,16 @@
 			"value" : ""
 		},
 		{
-			"name" : "CMAKE_COLOR_DIAGNOSTICS",
+			"name" : "CMAKE_COLOR_MAKEFILE",
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
-					"value" : "Enable colored diagnostics throughout."
+					"value" : "Enable/Disable color output during build."
 				}
 			],
 			"type" : "BOOL",
@@ -466,18 +470,6 @@
 			"value" : "C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include;C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include;C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed;C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"
 		},
 		{
-			"name" : "CMAKE_FIND_PACKAGE_REDIRECTS_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake."
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/cmake-build-debug/CMakeFiles/pkgRedirects"
-		},
-		{
 			"name" : "CMAKE_GENERATOR",
 			"properties" : 
 			[
@@ -547,7 +539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt"
+			"value" : "C:/Users/tkwa/OneDrive/Dokumenter/GitHub/P1-Projekt"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -931,7 +923,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/JetBrains/CLion 2022.2.1/bin/cmake/win/share/cmake-3.24"
+			"value" : "C:/Program Files/JetBrains/CLion 2022.2.1/bin/cmake/win/share/cmake-3.23"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1167,7 +1159,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/cmake-build-debug"
+			"value" : "C:/Users/tkwa/OneDrive/Dokumenter/GitHub/P1-Projekt/cmake-build-debug"
 		},
 		{
 			"name" : "P1_Projekt_IS_TOP_LEVEL",
@@ -1191,19 +1183,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt"
-		},
-		{
-			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "linker supports push/pop state"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "TRUE"
+			"value" : "C:/Users/tkwa/OneDrive/Dokumenter/GitHub/P1-Projekt"
 		}
 	],
 	"kind" : "cache",

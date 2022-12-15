@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "P1_Projekt::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-P1_Projekt-Debug-3a2956f05e1c046ad6ef.json",
+					"jsonFile" : "target-P1_Projekt-Debug-a6159f678a2f132ab612.json",
 					"name" : "P1_Projekt",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt/cmake-build-debug",
-		"source" : "C:/Users/danie/OneDrive/Uni/1. semester/IMPR/P1-Projekt"
+		"build" : "C:/Users/tkwa/OneDrive/Dokumenter/GitHub/P1-Projekt/cmake-build-debug",
+		"source" : "C:/Users/tkwa/OneDrive/Dokumenter/GitHub/P1-Projekt"
 	},
 	"version" : 
 	{

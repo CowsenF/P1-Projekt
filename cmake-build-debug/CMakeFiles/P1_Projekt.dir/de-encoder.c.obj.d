@@ -1,5 +1,5 @@
 CMakeFiles/P1_Projekt.dir/de-encoder.c.obj: \
- C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\de-encoder.c \
+ C:\Users\tkwa\OneDrive\Dokumenter\GitHub\P1-Projekt\de-encoder.c \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
