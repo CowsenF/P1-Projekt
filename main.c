@@ -72,9 +72,21 @@ int main() {
     fptr2 = fopen ("store_list.txt","r");
     char input;
     do {
+<<<<<<< Updated upstream
         printf("To make a shopping list type 's'\n");
         printf("To view all the the catalogues type 'c'\n");
         printf("To quit the program type 'q'\n");
+=======
+<<<<<<< HEAD
+        printf("To make a shopping list type 's'\n");
+        printf("To view all the the catalogues type 'c'\n");
+        printf("To quit the program type 'q'\n");
+=======
+        printf("Make a shoping list type s\n");
+        printf("To see the catalogues type c\n");
+        printf("Quit the program type q\n");
+>>>>>>> c3bb34a28aa2d4fa2e1081b2c1c696b6e7e76677
+>>>>>>> Stashed changes
         scanf(" %c",&input);
         if(input == 's') {
             find_shopping_route(size_of_list_of_stores, fptr2);
