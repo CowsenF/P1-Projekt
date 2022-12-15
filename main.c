@@ -72,9 +72,9 @@ int main() {
     fptr2 = fopen ("store_list.txt","r");
     char input;
     do {
-        printf("Do you want to make a shopping list: s\n");
-        printf("Do you want to see the catalogues: c\n");
-        printf("Do you want to quit the program: q\n");
+        printf("Make a shoping list type s\n");
+        printf("To see the catalogues type c\n");
+        printf("Quit the program type q\n");
         scanf(" %c",&input);
         if(input == 's') {
             find_shopping_route(size_of_list_of_stores, fptr2);
