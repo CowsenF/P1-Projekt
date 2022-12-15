@@ -49,7 +49,7 @@ int store_array_name(char* store_name) {
     } else if (strcmp(store_name, "meny") == 0) {
         return 10;
     } else {
-        printf("No store can be found");
+        printf("No store can be found. Name of store: %s\n", store_name);
         return -1;
     }
 }
@@ -84,23 +84,19 @@ int main() {
         }
         printf("\n");
     } while (input != 'q');
-
+    fclose(fptr2);
 
     return 0;
 }
 
 void find_shopping_route(size_t size_of_list_of_stores, FILE *fptr2) {
 
-
+    rewind(fptr2);
     double range = 0;
     int amount_of_stores_to_visit = 0;
     // For database
     //FILE *fptr2;
     //fptr2 = fopen ("store_list.txt","r");
-
-    // For the final struct
-
-
 
     printf("Please input the maximum radius of your shopping trip in KM\n");
     scanf("%lf",&range);
@@ -142,13 +138,10 @@ void find_shopping_route(size_t size_of_list_of_stores, FILE *fptr2) {
 
     // Print Endlig struct
 
-    fclose(fptr2);
-
     //get_list_of_items()
     //return: list_of_items
 
     //To print out user desired item name (Shopping list)
-
 }
 
 
