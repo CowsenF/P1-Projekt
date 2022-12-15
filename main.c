@@ -72,7 +72,7 @@ int main() {
     fptr2 = fopen ("store_list.txt","r");
     char input;
     do {
-        printf("Do you want a shopping list: s\n");
+        printf("Do you want to make a shopping list: s\n");
         printf("Do you want to see the catalogues: c\n");
         printf("Do you want to quit the program: q\n");
         scanf(" %c",&input);
@@ -161,7 +161,6 @@ tree_t get_list_of_items(){
     int i;
     while (exit_con == 0){
         printf("Enter product (end with 'exit')\n");
-        scanf(" %s", name);
         scanf("%s",nameholder);
         for(i=0; i<30;++i){
             name[i]=tolower(nameholder[i]);
@@ -240,8 +239,12 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
 
 void print_stores_prices(final_stores *final_stores, size_t size_of_list){
 
+    printf("\n\nlist of stores that are in radius\n\n");
     for (int i = 0; i < size_of_list; ++i) {
-        printf("Store: %s\n",final_stores[i].store_name);
+        if(strlen(final_stores[i].store_name) == 0){
+            continue;
+        }
+        printf("Store: %s Distance: %lf\n",final_stores[i].store_name,final_stores[i].distance);
 
         for (int j = 0; j < 11; ++j) {
             if(final_stores[i].finalItems[j].price != 0) {
@@ -254,16 +257,18 @@ void print_stores_prices(final_stores *final_stores, size_t size_of_list){
 }
 
 void print_best_stores(best_stores bestStores) {
+    printf("\nShopping list\n");
+
     for (int i = 0; i < bestStores.number_of_stores; ++i) {
         for (int j = 0; j < 11; ++j) {
             if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
             printf("%s\n", bestStores.bestStoreForItem[i].storeName);
+            printf("The store is: %lf km away\n", bestStores.bestStoreForItem[i].distance);
             break;
         }
         for (int j = 0; j < 11; ++j) {
             if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
             printf("Buy %s for %d\n", bestStores.bestStoreForItem[i].bestFinalItems[j].item_name, bestStores.bestStoreForItem[i].bestFinalItems[j].price);
-            printf("The store is: %lf km away\n", bestStores.bestStoreForItem[i].distance);
         }
         printf("\n");
     }

@@ -1,5 +1,5 @@
 CMakeFiles/P1_Projekt.dir/main.c.obj: \
- C:\Users\tkwa\CLionProjects\P1-Projekt\main.c \
+ C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\main.c \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
@@ -14,9 +14,9 @@ CMakeFiles/P1_Projekt.dir/main.c.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
- C:\Users\tkwa\CLionProjects\P1-Projekt\shopping_list.h \
- C:\Users\tkwa\CLionProjects\P1-Projekt\database_gen.h \
- C:\Users\tkwa\CLionProjects\P1-Projekt\CalculateCheapestOption.h \
+ C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\shopping_list.h \
+ C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\database_gen.h \
+ C:\Users\danie\OneDrive\Uni\1.\ semester\IMPR\P1-Projekt\CalculateCheapestOption.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
