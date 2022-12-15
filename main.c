@@ -26,27 +26,27 @@ typedef struct {
 
 int store_array_name(char* store_name) {
 
-    if (strcmp(store_name, "bilka") == 0) {
+    if (strcmp(store_name, "Bilka") == 0) {
         return 0;
-    } else if (strcmp(store_name, "rema") == 0) {
+    } else if (strcmp(store_name, "Rema") == 0) {
         return 1;
-    } else if (strcmp(store_name, "fotex") == 0) {
+    } else if (strcmp(store_name, "Fotex") == 0) {
         return 2;
-    } else if (strcmp(store_name, "spar") == 0) {
+    } else if (strcmp(store_name, "Spar") == 0) {
         return 3;
-    } else if (strcmp(store_name, "daglig_Brusen") == 0) {
+    } else if (strcmp(store_name, "Daglig_Brusen") == 0) {
         return 4;
-    } else if (strcmp(store_name, "coop_365") == 0) {
+    } else if (strcmp(store_name, "Coop_365") == 0) {
         return 5;
-    } else if (strcmp(store_name, "nem_handel") == 0) {
+    } else if (strcmp(store_name, "Nem_handel") == 0) {
         return 6;
-    } else if (strcmp(store_name, "kobmand") == 0) {
+    } else if (strcmp(store_name, "Min_kobmand") == 0) {
         return 7;
-    } else if (strcmp(store_name, "fleggard") == 0) {
+    } else if (strcmp(store_name, "Fleggard") == 0) {
         return 8;
-    } else if (strcmp(store_name, "netto") == 0) {
+    } else if (strcmp(store_name, "Netto") == 0) {
         return 9;
-    } else if (strcmp(store_name, "meny") == 0) {
+    } else if (strcmp(store_name, "Meny") == 0) {
         return 10;
     } else {
         printf("No store can be found. Name of store: %s\n", store_name);
@@ -72,9 +72,9 @@ int main() {
     fptr2 = fopen ("store_list.txt","r");
     char input;
     do {
-        printf("Make a shoping list type s\n");
-        printf("To see the catalogues type c\n");
-        printf("Quit the program type q\n");
+        printf("To make a shopping list type 's'\n");
+        printf("To see all the catalogues type 'c'\n");
+        printf("To quit the program type 'q'\n");
         scanf(" %c",&input);
         if(input == 's') {
             find_shopping_route(size_of_list_of_stores, fptr2);
@@ -232,7 +232,7 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
 
 void print_stores_prices(final_stores *final_stores, size_t size_of_list){
 
-    printf("\n\nlist of stores that are in radius\n\n");
+    printf("\n\nList of stores that are within the desired radius:\n\n");
     for (int i = 0; i < size_of_list; ++i) {
         if(strlen(final_stores[i].store_name) == 0){
             continue;
@@ -241,7 +241,7 @@ void print_stores_prices(final_stores *final_stores, size_t size_of_list){
 
         for (int j = 0; j < 11; ++j) {
             if(final_stores[i].finalItems[j].price != 0) {
-                printf("Product: %s PRICE:%d\n", final_stores[i].finalItems[j].item_name,final_stores[i].finalItems[j].price);
+                printf("Product: %s Price:%d\n", final_stores[i].finalItems[j].item_name,final_stores[i].finalItems[j].price);
             }
         }
         printf("\n");
@@ -250,21 +250,25 @@ void print_stores_prices(final_stores *final_stores, size_t size_of_list){
 }
 
 void print_best_stores(best_stores bestStores) {
-    printf("\nShopping list\n");
+    int sum;
+    printf("\nShopping list:\n\n");
 
     for (int i = 0; i < bestStores.number_of_stores; ++i) {
         for (int j = 0; j < 11; ++j) {
             if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
             printf("%s\n", bestStores.bestStoreForItem[i].storeName);
-            printf("The store is: %lf km away\n", bestStores.bestStoreForItem[i].distance);
+            printf("The store is %lf km away from your location\n", bestStores.bestStoreForItem[i].distance);
             break;
         }
         for (int j = 0; j < 11; ++j) {
             if (bestStores.bestStoreForItem[i].bestFinalItems[j].price == 0) { continue;}
             printf("Buy %s for %d\n", bestStores.bestStoreForItem[i].bestFinalItems[j].item_name, bestStores.bestStoreForItem[i].bestFinalItems[j].price);
+            sum+=bestStores.bestStoreForItem[i].bestFinalItems[j].price;
         }
+
         printf("\n");
     }
+    printf("The total cost is: %d\n",sum);
 }
 
 double distance_formula(int x1,int x2, int y1, int y2){
