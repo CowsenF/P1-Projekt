@@ -1,11 +1,11 @@
-#include "database_gen.h"
+#include "StoreListGeneration.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 
 char* get_store_name(int store_num){
-
+    // This function takes a given integer and retus a string value with the stores name
     switch (store_num) {
         case 0:
             return "Bilka";//
@@ -32,6 +32,7 @@ char* get_store_name(int store_num){
     }
 }
 char* get_product_name(int product_num){
+    // This function takes a given integer and retus a string value with the products name
     switch (product_num) {
         case 0:
             return "beef";//
@@ -58,17 +59,13 @@ char* get_product_name(int product_num){
     }
 }
 
-double drand ( double low, double high )
-{
-    return ( (double)rand() * ( high - low ) ) / (double)RAND_MAX + low;
-}
 
 int point_maker(){
-
+    // To get a point it starts by generating a random value between 0-10
     int x = rand() % 10;
-    // first it will decide if it will be a negative or a positive coordinate.
+    // A 50/50 chance will decide if it will be a negative or a positive coordinate.
     if(rand() % 2 == 0){
-        x = x - x * 2;
+        x = x - (x * 2);
     }
     return x;
 
@@ -76,32 +73,34 @@ int point_maker(){
 
 
 
-void database_gen(size_t *store_num){
-    // Jeg tænker at man starter med at sætte to lister op som indenholder hvad navne på butikerne er og en som
-    // kigger på mad navne
+void Storelistgeneration(size_t *store_num){
 
-    // database gen er lavet med to for loops
-    // den ydrer laver butikker
-    // den indre laver produkter
+
+    // First we setup the right paramerters for rand to work this is time for each seed to be more random and srand to set the seed
     time_t t;
     srand((unsigned) time(&t));
+
+    // A file pointer is setup that looks at a text file in write mode
     FILE *fptr;
     fptr = fopen ("store_list.txt","w");
 
 
-    //test:
+    //we know that we only have eleven stores
     *store_num = 11;
 
-
+    // Two for loops are then used to place the store name and the product name
     for (int i = 0; i < *store_num; ++i) {
-        // den har først brug for et butik navn
+        // The store is first printed with a name gooten by the for loops i value, and then two points in a coordinate system is made.
         fprintf(fptr,"%s cordinates: x:%d y:%d\n", get_store_name(i), point_maker(),point_maker());
         for (int j = 0; j < 11; ++j) {
+            // 10 products are then made with their names coming from the j value given to the fuction.
+            // A price between 1 and 101 is also generated with rand
             fprintf(fptr,"%d: %s: %d\n",j+1,get_product_name(j),rand()%100 +1);
 
         }
     }
 
+    // Now that the file is no longer used we close it to avoid memory problems.
     fclose(fptr);
 
 

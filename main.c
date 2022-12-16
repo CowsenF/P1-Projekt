@@ -2,7 +2,7 @@
 #include <math.h>
 #include <ctype.h>
 #include "shopping_list.h"
-#include "database_gen.h"
+#include "StoreListGeneration.h"
 #include "CalculateCheapestOption.h"
 #include "stdlib.h"
 #include "string.h"
@@ -67,7 +67,7 @@ stores * catalog(FILE * fptr2);
 
 int main() {
     size_t size_of_list_of_stores;
-    database_gen(&size_of_list_of_stores);
+    Storelistgeneration(&size_of_list_of_stores);
     FILE *fptr2;
     fptr2 = fopen ("store_list.txt","r");
     char input;

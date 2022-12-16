@@ -1,5 +1,5 @@
 #include <stdio.h>
-void database_gen(size_t *store_num);
+void Storelistgeneration(size_t *store_num);
 
 char* get_store_name(int store_num);
 

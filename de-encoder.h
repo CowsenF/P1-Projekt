@@ -1,3 +1,0 @@
-
-int* encoder ();
-char* decoder();
