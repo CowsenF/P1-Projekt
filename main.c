@@ -72,6 +72,7 @@ int main() {
     fptr2 = fopen ("store_list.txt","r");
     char input;
     do {
+        rewind(fptr2);
         printf("To make a shopping list type 's'\n");
         printf("To see all the catalogues type 'c'\n");
         printf("To quit the program type 'q'\n");
