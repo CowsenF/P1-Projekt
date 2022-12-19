@@ -4,7 +4,7 @@
 #include "shopping_list.h"
 
 
-
+//adds an item based on user input
 void add_item(tree_t* list, char* name){
     node_t* new_node = (node_t*) malloc(sizeof(node_t));
     new_node->next = list->head;
@@ -23,7 +23,7 @@ void print_items(tree_t* list){
     }
     fclose(fptr);
 }
-
+//Free's memory form the list of items
 void deallocate_list(tree_t* list){
     node_t* current = list->head;
     while(current != NULL){

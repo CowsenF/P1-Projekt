@@ -91,13 +91,12 @@ int main() {
 
 void find_shopping_route(size_t size_of_list_of_stores, FILE *fptr2) {
 
+    //sets up start values and resets the file pointer:
     rewind(fptr2);
     double range = 0;
     int amount_of_stores_to_visit = 0;
-    // For database
-    //FILE *fptr2;
-    //fptr2 = fopen ("store_list.txt","r");
 
+    //Get user input:
     printf("Please input the maximum radius of your shopping trip in KM\n");
     scanf("%lf",&range);
     printf("Please input the maximum amount of stores you want to visit\n");
@@ -107,7 +106,6 @@ void find_shopping_route(size_t size_of_list_of_stores, FILE *fptr2) {
     tree_t list_of_items = get_list_of_items();
 
 
-    //VI SKAL HAVE EN MÅDE HVORPÅ VI VED HVOR LANG LISTEN ER
     stores *stores1 = scan_file_into_stores(fptr2, size_of_list_of_stores);
 
     final_stores *finalStores = setup_finalStores(size_of_list_of_stores);
@@ -132,16 +130,8 @@ void find_shopping_route(size_t size_of_list_of_stores, FILE *fptr2) {
     free(finalStores);
 
     print_best_stores(bestStores);
-    // Lav en struct af struct hvor vis string compair er true så sæt varens info ind i struct
 
-    // sammelign alle varer for at finde hvor det er billgeste
 
-    // Print Endlig struct
-
-    //get_list_of_items()
-    //return: list_of_items
-
-    //To print out user desired item name (Shopping list)
 }
 
 
@@ -181,6 +171,7 @@ stores * scan_file_into_stores(FILE * fptr2, size_t size_of_list) {
     return stores1;
 }
 
+//Setups finalStores list for later use.
 final_stores * setup_finalStores(size_t size_of_list) {
     final_stores *finalStores = calloc(size_of_list, sizeof(final_stores));
 
@@ -197,6 +188,7 @@ final_stores * setup_finalStores(size_t size_of_list) {
     return finalStores;
 }
 
+//Gets the users items in a list
 item_holder * setup_itemHolder(node_t* current, size_t size_of_list) {
     item_holder *itemHolder = calloc(size_of_list, sizeof(item_holder));;
     int g = 0;
@@ -208,8 +200,8 @@ item_holder * setup_itemHolder(node_t* current, size_t size_of_list) {
     return itemHolder;
 }
 
+//Converts stores list to finalStores list
 final_stores * convert_store_type(stores *stores1, final_stores *finalStores, item_holder *itemHolder, double range, size_t size_of_list) {
-
     for (int i = 0; i < size_of_list; ++i) {
         if(stores1[i].distance > range) {
             continue;
@@ -226,7 +218,6 @@ final_stores * convert_store_type(stores *stores1, final_stores *finalStores, it
             }
         }
     }
-
     return finalStores;
 }
 
